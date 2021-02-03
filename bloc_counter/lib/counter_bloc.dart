@@ -9,7 +9,7 @@ class CounterBloc {
   final _streamController = StreamController<int>();
 
 //input the data through sink
-  StreamSink get counterSink => _streamController.sink;
+  StreamSink<int> get counterSink => _streamController.sink;
 
   //show output through stream
   Stream<int> get counterStream => _streamController.stream;

@@ -31,7 +31,7 @@ class _HomePageState extends State<HomePage> {
               initialData: 0,
               stream: counterBloc.counterStream,
               builder: (context, snapshot) => Text(
-                    '{$snapshot.data}',
+                    '${snapshot.data}',
                     style: TextStyle(fontSize: 16),
                   )),
           SizedBox(height: 30),
@@ -42,6 +42,18 @@ class _HomePageState extends State<HomePage> {
                   counterBloc.eventSink.add(CounterAction.Increment);
                 },
                 child: Icon(Icons.add),
+              ),
+              FloatingActionButton(
+                onPressed: () {
+                  counterBloc.eventSink.add(CounterAction.Decrement);
+                },
+                child: Icon(Icons.drive_file_move),
+              ),
+              FloatingActionButton(
+                onPressed: () {
+                  counterBloc.eventSink.add(CounterAction.Reload);
+                },
+                child: Icon(Icons.airline_seat_recline_normal_rounded),
               ),
             ],
           ),
