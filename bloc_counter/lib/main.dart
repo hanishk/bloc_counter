@@ -30,12 +30,18 @@ class _HomePageState extends State<HomePage> {
           StreamBuilder(
               initialData: 0,
               stream: counterBloc.counterStream,
-              builder: (context, snapshot) => Text(
+              builder: (context, snapshot) {
+                if (snapshot.hasData) {
+                  return Text(
                     '${snapshot.data}',
-                    style: TextStyle(fontSize: 16),
-                  )),
-          SizedBox(height: 30),
+                    style: TextStyle(fontSize: 24),
+                  );
+                }
+                
+              }),
+          SizedBox(height: 40),
           Row(
+            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
             children: [
               FloatingActionButton(
                 onPressed: () {
